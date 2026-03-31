@@ -9,35 +9,11 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 body{background:#1f1f1f;color:#fff;overflow-x:hidden;}
 
-/* GOLD PARTICLES */
-.particles{
-  position:fixed;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  pointer-events:none;
-  z-index:0;
-}
-.particle{
-  position:absolute;
-  background:gold;
-  border-radius:50%;
-  opacity:0.7;
-  animation:fall linear infinite;
-}
-@keyframes fall{
-  from{transform:translateY(-10vh);}
-  to{transform:translateY(110vh);}
-}
-
 /* HEADER */
 header{
   background:#222;
   padding:15px;
-  position:sticky;
-  top:0;
-  z-index:1000;
+  text-align:center;
   border-bottom:3px solid red;
 }
 
@@ -45,104 +21,44 @@ header{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:5px;
 }
-.logo-container img{
-  width:55px;
-}
-.logo-container h1{
-  color:red;
-  font-size:2.3rem;
-}
+.logo-container img{width:60px;}
+.logo-container h1{color:red;font-size:2.3rem;}
 
-/* NAV */
-nav{
-  margin-top:10px;
-  text-align:center;
-}
-nav a{
-  margin:0 12px;
-  color:white;
-  font-weight:bold;
-  transition:0.3s;
-}
+nav{margin-top:10px;}
+nav a{margin:0 10px;color:white;text-decoration:none;}
 nav a:hover{color:gold;}
 
 /* HERO */
 .hero{
-  background:url('banner.jpg') center/cover no-repeat;
-  height:500px;
+  background:url('images/banner.jpg') center/cover no-repeat;
+  height:400px;
   display:flex;
   align-items:center;
   justify-content:center;
-  position:relative;
-}
-.hero::after{
-  content:'';
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:linear-gradient(rgba(255,0,0,0.3),rgba(0,0,0,0.6));
 }
 .hero h2{
-  position:relative;
-  padding:20px 40px;
+  background:rgba(0,0,0,0.6);
+  padding:20px;
   border:2px solid red;
-  font-size:2.8rem;
-  text-align:center;
 }
 
-/* TITLES */
+/* SECTION */
 .section-title{
   text-align:center;
-  margin:50px 0 20px;
+  margin:40px 0 20px;
   color:#ff6347;
 }
-.section-title::after{
-  content:'';
-  display:block;
-  width:60px;
-  height:4px;
-  background:gold;
-  margin:10px auto;
-}
 
-main{
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
-}
+main{max-width:1000px;margin:auto;padding:20px;}
 
 /* SLIDER */
-.slider{
-  overflow:hidden;
-  border-radius:10px;
-  position:relative;
-}
-.slides{
-  display:flex;
-  transition:0.6s;
-}
-.slide{
-  min-width:100%;
-  position:relative;
-}
-.slide img{
-  width:100%;
-  height:400px;
-  object-fit:cover;
-}
-.slide h3{
-  position:absolute;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(0,0,0,0.6);
-  padding:10px 20px;
-  color:gold;
-}
+.slider{overflow:hidden;position:relative;}
+.slides{display:flex;transition:0.5s;}
+.slide{min-width:100%;}
+.slide img{width:100%;height:300px;object-fit:cover;}
 
-.slider button{
+button{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
@@ -158,22 +74,10 @@ main{
 /* GALLERY */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
 }
-.art-card{
-  background:#2a2a2a;
-  border:2px solid red;
-  border-radius:10px;
-  overflow:hidden;
-  cursor:pointer;
-  transition:0.3s;
-}
-.art-card img{width:100%;}
-.art-card:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px red;
-}
+.gallery img{width:100%;cursor:pointer;}
 
 /* LIGHTBOX */
 #lightbox{
@@ -188,76 +92,31 @@ main{
   align-items:center;
   opacity:0;
   pointer-events:none;
-  transition:0.3s;
 }
-#lightbox.show{
-  opacity:1;
-  pointer-events:auto;
-}
-#lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border:5px solid gold;
-}
-
-/* SECTIONS */
-section{
-  background:#2a2a2a;
-  padding:30px;
-  margin:40px 0;
-  border-radius:10px;
-}
-
-/* CONTACT */
-input,textarea{
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-  background:#1e1e1e;
-  border:2px solid red;
-  color:white;
-}
-button{
-  background:red;
-  color:white;
-  padding:10px;
-  border:none;
-}
-button:hover{
-  background:gold;
-  color:black;
-}
+#lightbox.show{opacity:1;pointer-events:auto;}
+#lightbox img{max-width:90%;}
 
 /* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  border-top:3px solid red;
-}
+footer{text-align:center;padding:20px;border-top:2px solid red;}
 </style>
 </head>
 
 <body>
 
-<div class="particles" id="particles"></div>
-
 <header>
   <div class="logo-container">
-    <img src="logo.jpg">
+    <img src="images/logo.jpg">
     <h1>TEE'S ART</h1>
   </div>
-
   <nav>
     <a href="#">Home</a>
     <a href="#featured">Featured</a>
     <a href="#gallery">Gallery</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <div class="hero">
-  <h2>Step into Tee Martires’ World</h2>
+  <h2>Welcome to Tee Martires' Gallery</h2>
 </div>
 
 <main>
@@ -266,10 +125,10 @@ footer{
 
 <div class="slider">
   <div class="slides">
-    <div class="slide"><img src="featured1.jpg"><h3>Featured 1</h3></div>
-    <div class="slide"><img src="featured2.jpg"><h3>Featured 2</h3></div>
-    <div class="slide"><img src="featured3.jpg"><h3>Featured 3</h3></div>
-    <div class="slide"><img src="featured4.jpg"><h3>Featured 4</h3></div>
+    <div class="slide"><img src="images/featured1.jpg"></div>
+    <div class="slide"><img src="images/featured2.jpg"></div>
+    <div class="slide"><img src="images/featured3.jpg"></div>
+    <div class="slide"><img src="images/featured4.jpg"></div>
   </div>
   <button class="prev">&#10094;</button>
   <button class="next">&#10095;</button>
@@ -278,24 +137,11 @@ footer{
 <h2 class="section-title" id="gallery">Gallery</h2>
 
 <div class="gallery">
-  <div class="art-card"><img src="featured1.jpg"></div>
-  <div class="art-card"><img src="featured2.jpg"></div>
-  <div class="art-card"><img src="featured3.jpg"></div>
-  <div class="art-card"><img src="featured4.jpg"></div>
+  <img src="images/featured1.jpg">
+  <img src="images/featured2.jpg">
+  <img src="images/featured3.jpg">
+  <img src="images/featured4.jpg">
 </div>
-
-<section id="about">
-<h2 class="section-title">About</h2>
-<p>Welcome to TEE’S ART — a curated collection of original works by Tee Martires, showcasing bold creativity and artistic expression.</p>
-</section>
-
-<section id="contact">
-<h2 class="section-title">Contact</h2>
-<input type="text" placeholder="Name">
-<input type="email" placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button>Send</button>
-</section>
 
 </main>
 
@@ -306,33 +152,28 @@ footer{
 <div id="lightbox"><img src=""></div>
 
 <script>
-// PARTICLES
-const container=document.getElementById('particles');
-for(let i=0;i<60;i++){
-  const p=document.createElement('div');
-  p.className='particle';
-  p.style.left=Math.random()*100+'%';
-  p.style.width=p.style.height=(2+Math.random()*5)+'px';
-  p.style.animationDuration=(5+Math.random()*10)+'s';
-  container.appendChild(p);
-}
-
 // SLIDER
 const slides=document.querySelector('.slides');
 const slide=document.querySelectorAll('.slide');
 let i=0;
-document.querySelector('.next').onclick=()=>{i=(i+1)%slide.length;slides.style.transform=`translateX(${-i*100}%)`;}
-document.querySelector('.prev').onclick=()=>{i=(i-1+slide.length)%slide.length;slides.style.transform=`translateX(${-i*100}%)`;}
-setInterval(()=>{i=(i+1)%slide.length;slides.style.transform=`translateX(${-i*100}%)`},4000);
+
+document.querySelector('.next').onclick=()=>{
+  i=(i+1)%slide.length;
+  slides.style.transform=`translateX(${-i*100}%)`;
+}
+document.querySelector('.prev').onclick=()=>{
+  i=(i-1+slide.length)%slide.length;
+  slides.style.transform=`translateX(${-i*100}%)`;
+}
 
 // LIGHTBOX
-const cards=document.querySelectorAll('.art-card');
+const images=document.querySelectorAll('.gallery img');
 const lightbox=document.getElementById('lightbox');
 const img=lightbox.querySelector('img');
 
-cards.forEach(c=>{
-  c.onclick=()=>{
-    img.src=c.querySelector('img').src;
+images.forEach(image=>{
+  image.onclick=()=>{
+    img.src=image.src;
     lightbox.classList.add('show');
   }
 });
